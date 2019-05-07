@@ -45,9 +45,11 @@ def agglomerativeclustering():
     min_coor = (min_row[0], min_col[0])
     new_row = np.zeros(df.shape[0])
     dist_matrix = np.insert(arr=dist_matrix, obj=dist_matrix.shape[0], values=0, axis=0)
+    new_cluster_index=dist_matrix.shape[0] - 1
+    for i in range(df.shape[0]):
+        dist_matrix[new_cluster_index][i] = np.nanmax([dist_matrix[min_coor[0]][i],dist_matrix[min_coor[1]][i],dist_matrix[i][min_coor[0]],dist_matrix[i][min_coor[1]]])
+    
     print(dist_matrix)
-
-
 init_dist_matrix()
 agglomerativeclustering()
 
