@@ -6,6 +6,10 @@ from scipy.spatial import distance
 
 df = pd.read_csv("Dataset.csv")
 dist_matrix = np.zeros((df.shape[0], df.shape[0]))
+level = []
+k = 0
+level.append(i)
+sequence_no = 1
 
 def plot_graph():
     df = pd.read_csv('Dataset.csv')
@@ -26,5 +30,30 @@ def init_dist_matrix():
         for j in range(df.shape[0]): 
             if dist_matrix[i, j] == 0:
                 dist_matrix[i, j] = float('NaN')
-        
+
+# Begin with the disjoint clustering having level L(0) = 0 and sequence number m = 0.     
+# Find the least distance pair of clusters in the current clustering, say pair (r), (s), according to d[(r),(s)] = min d[(i),(j)]   where the minimum is over all pairs of clusters in the current clustering.
+
+# Update the distance matrix, D, by deleting the rows and columns corresponding to clusters (r) and (s) and adding a row and column corresponding to the newly formed cluster. The distance between the new cluster, denoted (r,s) and old cluster(k) is defined in this way: d[(k), (r,s)] = min (d[(k),(r)], d[(k),(s)]).
+
+
+def agglomerativeclustering():
+
+    global dist_matrix,level,sequence_no,k
+    min_dist = np.nanmin(dist_matrix)
+    min_col,min_row = np.where(dist_matrix==min_dist)
+    min_coor = (min_row[0],min_col[0])
+    new_row = np.zeros((df.shape[0])
+    np.insert(dist_matrix,df.shape[0] + sequence_no, 0, 1)
+    print(dist_mat)
+
+
+    
+
 init_dist_matrix()
+agglomerativeclustering()
+
+    
+
+
+
