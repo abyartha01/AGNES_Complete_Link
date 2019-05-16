@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.spatial import distance
 
-df = pd.read_csv("Dataset2.csv")
+df = pd.read_csv("t5.8k.csv", delimiter=" ")
 dist_matrix = np.zeros((df.shape[0], df.shape[0]))
 level = {}
 sequence_no = 1
