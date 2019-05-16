@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.spatial import distance
 
-df = pd.read_csv("Dataset.csv")
+df = pd.read_csv("Dataset2.csv")
 dist_matrix = np.zeros((df.shape[0], df.shape[0]))
 level = {}
 sequence_no = 1
@@ -217,11 +217,11 @@ def calculatesavgseparation():
     avg_separation = (1/(sum(list2)/2)) * sum(list1)
     print("The average separation is: ", avg_separation)
 
-#plot_graph_init()
+plot_graph_init()
 init_dist_matrix()
 agglomerative_clustering()
 
-threshold = float(input("Enter the threshold value you want: "))
+threshold = 15
 
 determine_clusters()
 plot_graph_final()
